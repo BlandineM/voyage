@@ -1,3 +1,55 @@
-h1 {
-  color: red;
+.homepage {
+  width: 100%;
+  height: 100vh;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    color: red;
+    text-align: center;
+    font-family: indie Flower;
+    font-size: 3.4em;
+  }
+  h2 {
+    text-align: center;
+  }
+  .card {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 60%;
+    .sun {
+      background-color: #61d4b3;
+      opacity: 70%;
+      height: 50%;
+      width: 30%;
+      border-radius: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h3 {
+        text-align: center;
+      }
+      img {
+        width: 80%;
+      }
+    }
+    .hiking {
+      background-color: #fdd365;
+      opacity: 70%;
+      height: 50%;
+      width: 30%;
+      border-radius: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h3 {
+        text-align: center;
+      }
+      img {
+        width: 80%;
+      }
+    }
+  }
 }
