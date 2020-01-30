@@ -12,8 +12,7 @@ app.use(cors());
 
 /* -------------------------------------------------------------- Public Routes */
 
-app.use("/", require("./route/plage"));
-app.use("/", require("./route/randonnee"));
+app.use("/", require("./route/type"));
 
 app.listen(port, err => {
   if (err) {
