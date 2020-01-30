@@ -2,11 +2,21 @@ const express = require("express");
 const { connection } = require("../conf");
 const router = express.Router();
 
+function sqlNameByType(type) {
+  if (type === "plage") {
+    return "P";
+  } else {
+    return "M";
+  }
+}
+
 // Route of all destinations
-router.get("/randonnee", (req, res) => {
+router.get("/:type", (req, res) => {
+  const type = req.params.type;
+  const sqlName = sqlNameByType(type);
   // Connection to the database and selection of information
   connection.query(
-    `SELECT pays, mois_conseille_P, mois_deconseille_P
+    `SELECT id, pays, mois_conseille_${sqlName}, mois_deconseille_${sqlName}
     FROM destinations`,
     (err, results) => {
       if (err) {
@@ -19,13 +29,15 @@ router.get("/randonnee", (req, res) => {
   );
 });
 // Route of all destinations for the chosen month
-router.get("/randonnee/:id", (req, res) => {
+router.get("/:type/:id", (req, res) => {
+  const type = req.params.type;
   const id = req.params.id;
+  const sqlName = sqlNameByType(type);
   // Connection to the database and selection of information
   connection.query(
-    `SELECT pays, mois_conseille_M, mois_deconseille_M
+    `SELECT id, pays, mois_conseille_${sqlName}, mois_deconseille_${sqlName}
       FROM destinations
-    WHERE mois_conseille_M LIKE concat("%"?"%");`,
+    WHERE mois_conseille_${sqlName} LIKE concat("%"?"%");`,
     id,
     (err, results) => {
       if (err) {

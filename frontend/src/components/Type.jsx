@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NavBar from "./NavBar";
 import "./style/plage.scss";
+import { useParams } from "react-router-dom";
 
-function Plage() {
+function Type() {
   const [pays, setpays] = useState([]);
+  const { type } = useParams();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/plage").then(({ data }) => {
+    axios.get(`http://localhost:5000/${type}`).then(({ data }) => {
       setpays(data);
     });
   }, [setpays]);
+  console.log("type !!!");
 
   return (
     <div className="main">
@@ -18,8 +21,8 @@ function Plage() {
         @import
         url('https://fonts.googleapis.com/css?family=Indie+Flower|Lobster&display=swap');
       </style>
-      <h1>Let's go to the beach ! </h1>
-      <NavBar />
+      <h1>Direction {type} ! </h1>
+      <NavBar place={type} />
       <div className="destinations">
         {pays.map((pays, i) => {
           return (
@@ -40,4 +43,4 @@ function Plage() {
   );
 }
 
-export default Plage;
+export default Type;
