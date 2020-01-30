@@ -4,12 +4,26 @@ import NavBar from "./NavBar";
 import "./style/plage.scss";
 import { useParams } from "react-router-dom";
 
-export default function Month() {
+function Month() {
   const [filter, setfilter] = useState([]);
-  const { month } = useParams();
+  const { month, type } = useParams();
+  const mois = {
+    "01": "Janvier",
+    "02": "Fevrier",
+    "03": "Mars",
+    "04": "Avril",
+    "05": "Mai",
+    "06": "Juin",
+    "07": "Juillet",
+    "08": "Aout",
+    "09": "Septembre",
+    "10": "Octobre",
+    "11": "Novembre",
+    "12": "Decembre"
+  };
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/plage/01`).then(({ data }) => {
+    axios.get(`http://localhost:5000/${type}/${month}`).then(({ data }) => {
       setfilter(data);
     });
   }, [setfilter, month]);
@@ -21,8 +35,8 @@ export default function Month() {
         @import
         url('https://fonts.googleapis.com/css?family=Indie+Flower|Lobster&display=swap');
       </style>
-      <h1> in january! </h1>
-      <NavBar />
+      <h1> En {mois[month]} ! </h1>
+      <NavBar place={type} />
       <div className="destinations">
         {filter.map((pays, i) => {
           return (
@@ -42,3 +56,4 @@ export default function Month() {
     </div>
   );
 }
+export default Month;
