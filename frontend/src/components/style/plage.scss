@@ -16,22 +16,34 @@
     justify-content: center;
     align-items: center;
     align-content: space-around;
+
     .cards {
       margin: 1%;
       border-radius: 10%;
-      opacity: 1;
-      transition: 0.3s ease-in-out;
-      h2 {
-        position: absolute;
+      display: table-cell;
+      .image {
+        opacity: 1;
+        transition: 0.3s ease-in-out;
       }
+      h2 {
+        position: sticky;
+        top: 25%;
+        text-align: center;
+        visibility: hidden;
+      }
+
       .destination {
         height: 30vh;
       }
     }
-    .cards:hover .destinations {
-      opacity: 0.5;
+
+    .cards:hover {
       h2 {
-        visibility: hidden;
+        visibility: visible;
+        opacity: 1;
+      }
+      .image {
+        opacity: 0.5;
       }
     }
   }
