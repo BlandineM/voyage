@@ -6,51 +6,51 @@ export default function NavBar() {
   return (
     <div className="month">
       <ul>
-        <Link to="/plage/01">
+        <Link to="/01">
           <li>JANV</li>
         </Link>
 
-        <Link to="/plage/02">
+        <Link to="/02">
           <li>FEVR</li>
         </Link>
 
-        <Link to="/plage/03">
+        <Link to="/03">
           <li>MAR</li>
         </Link>
 
-        <Link to="/plage/04">
+        <Link to="/04">
           <li>AVR</li>
         </Link>
 
-        <Link to="/plage/05">
+        <Link to="/05">
           <li>MAI</li>
         </Link>
 
-        <Link to="/plage/06">
+        <Link to="/06">
           <li>JUIN</li>
         </Link>
 
-        <Link to="/plage/07">
+        <Link to="/07">
           <li>JUIL</li>
         </Link>
 
-        <Link to="/plage/08">
+        <Link to="/08">
           <li>AOU</li>
         </Link>
 
-        <Link to="/plage/09">
+        <Link to="/09">
           <li>SEPT</li>
         </Link>
 
-        <Link to="/plage/10">
+        <Link to="/10">
           <li>OCT</li>
         </Link>
 
-        <Link to="/plage/11">
+        <Link to="/11">
           <li>NOV</li>
         </Link>
 
-        <Link to="/plage/12">
+        <Link to="/12">
           <li>DEC</li>
         </Link>
 
