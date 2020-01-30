@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/plage", (req, res) => {
   // Connection to the database and selection of information
   connection.query(
-    `SELECT pays, mois_conseille_P, mois_deconseille_P
+    `SELECT id, pays, mois_conseille_P, mois_deconseille_P
     FROM destinations`,
     (err, results) => {
       if (err) {
