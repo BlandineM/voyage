@@ -23,7 +23,7 @@ router.get("/plage/:id", (req, res) => {
   const id = req.params.id;
   // Connection to the database and selection of information
   connection.query(
-    `SELECT pays, mois_conseille_P, mois_deconseille_P
+    `SELECT id, pays, mois_conseille_P, mois_deconseille_P
       FROM destinations
     WHERE mois_conseille_P LIKE concat("%"?"%");`,
     id,
