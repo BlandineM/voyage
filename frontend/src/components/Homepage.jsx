@@ -5,11 +5,6 @@ import { Link } from "react-router-dom";
 function Homepage() {
   return (
     <div className="homepage">
-      <style>
-        @import
-        url('https://fonts.googleapis.com/css?family=Indie+Flower|Lobster&display=swap');
-      </style>
-      <h1>Viens Chercher Bonheur !</h1>
       <div>
         <h2>Tu ne sais pas où et quand partir en vacances</h2>
       </div>
