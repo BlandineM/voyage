@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NavBar from "./NavBar";
-import "./style/plage.scss";
+import "./style/Month.scss";
 import { useParams } from "react-router-dom";
 
 function Month() {
-  const [filter, setfilter] = useState([]);
+  const [filterG, setfilterG] = useState([]);
+  const [filterB, setfilterB] = useState([]);
   const { month, type } = useParams();
   const mois = {
     "01": "Janvier",
@@ -24,10 +25,14 @@ function Month() {
 
   useEffect(() => {
     axios.get(`http://localhost:5000/${type}/${month}`).then(({ data }) => {
-      setfilter(data);
+      setfilterG(data);
     });
-  }, [setfilter, month]);
-  console.log(month);
+    axios
+      .get(`http://localhost:5000/${type}/wrong/${month}`)
+      .then(({ data }) => {
+        setfilterB(data);
+      });
+  }, [setfilterG, setfilterB, month]);
 
   return (
     <div className="main">
@@ -35,23 +40,48 @@ function Month() {
         @import
         url('https://fonts.googleapis.com/css?family=Indie+Flower|Lobster&display=swap');
       </style>
-      <h1> En {mois[month]} ! </h1>
+      <h1> En {mois[month]} </h1>
       <NavBar place={type} />
       <div className="destinations">
-        {filter.map((pays, i) => {
-          return (
-            <div key={i} className="cards">
-              <h2>{pays.pays}</h2>
-              <div className="image">
-                <img
-                  className="destination"
-                  src={`/destinations/${pays.id}.jpg`}
-                  alt={`${pays.pays}`}
-                ></img>
-              </div>
-            </div>
-          );
-        })}
+        <div className="title">
+          <h2>A visiter</h2>
+          <div className="destinationsG">
+            {filterG.map((pays, i) => {
+              return (
+                <div key={i} className="cards">
+                  <div className="image">
+                    <h2>{pays.pays}</h2>
+                    <img
+                      className="destinationPicture"
+                      src={`/destinations/${pays.id}.jpg`}
+                      alt={`${pays.pays}`}
+                    ></img>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="separation"></div>
+        <div className="title">
+          <h2>A éviter</h2>
+          <div className="destinationsB">
+            {filterB.map((pays, i) => {
+              return (
+                <div key={i} className="cards">
+                  <div className="image">
+                    <h2>{pays.pays}</h2>
+                    <img
+                      className="destinationPicture"
+                      src={`/destinations/${pays.id}.jpg`}
+                      alt={`${pays.pays}`}
+                    ></img>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );
