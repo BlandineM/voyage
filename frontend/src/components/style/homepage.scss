@@ -4,12 +4,7 @@
   color: white;
   display: flex;
   flex-direction: column;
-  h1 {
-    color: red;
-    text-align: center;
-    font-family: indie Flower;
-    font-size: 3.4em;
-  }
+
   h2 {
     text-align: center;
   }
@@ -35,17 +30,35 @@
         justify-content: center;
         h3 {
           text-align: center;
+          color: black;
+          position: absolute;
+          font-size: 2em;
+          z-index: 1;
         }
         img {
           width: 80%;
+          height: 30vh;
         }
       }
     }
     .sun {
-      background-color: #61d4b3;
+      img {
+        box-shadow: 8px 8px 8px #418bbe;
+      }
     }
     .hiking {
-      background-color: #fdd365;
+      img {
+        box-shadow: 8px 8px 8px #fdd365;
+      }
+    }
+  }
+  .card:hover {
+    .sun:hover,
+    .hiking:hover {
+      opacity: 1;
+      h3 {
+        color: red;
+      }
     }
   }
 }
