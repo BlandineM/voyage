@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NavBar from "./NavBar";
-import "./style/plage.scss";
+import "./style/type.scss";
 import { useParams } from "react-router-dom";
 
 function Type() {
@@ -13,24 +13,20 @@ function Type() {
       setpays(data);
     });
   }, [setpays]);
-  console.log("type !!!");
 
   return (
     <div className="main">
-      <style>
-        @import
-        url('https://fonts.googleapis.com/css?family=Indie+Flower|Lobster&display=swap');
-      </style>
-      <h1>Direction {type} ! </h1>
+      <h1>Direction {type} </h1>
+
       <NavBar place={type} />
       <div className="destinations">
         {pays.map((pays, i) => {
           return (
             <div key={i} className="cards">
-              <h2>{pays.pays}</h2>
               <div className="image">
+                <h2>{pays.pays}</h2>
                 <img
-                  className="destination"
+                  className="destinationPicture"
                   src={`/destinations/${pays.id}.jpg`}
                   alt={`${pays.pays}`}
                 ></img>
