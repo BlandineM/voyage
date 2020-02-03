@@ -1,62 +1,62 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style/navBar.scss";
 
 export default function NavBar(props) {
   return (
     <div className="month">
       <ul>
-        <Link to={`/${props.place}/01`}>
+        <NavLink to={`/${props.place}/01`}>
           <li>JANV</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}/02`}>
+        <NavLink to={`/${props.place}/02`}>
           <li>FEVR</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}/03`}>
+        <NavLink to={`/${props.place}/03`}>
           <li>MAR</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}/04`}>
+        <NavLink to={`/${props.place}/04`}>
           <li>AVR</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}/05`}>
+        <NavLink to={`/${props.place}/05`}>
           <li>MAI</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}/06`}>
+        <NavLink to={`/${props.place}/06`}>
           <li>JUIN</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}/07`}>
+        <NavLink to={`/${props.place}/07`}>
           <li>JUIL</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}/08`}>
+        <NavLink to={`/${props.place}/08`}>
           <li>AOU</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}/09`}>
+        <NavLink to={`/${props.place}/09`}>
           <li>SEPT</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}/10`}>
+        <NavLink to={`/${props.place}/10`}>
           <li>OCT</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}/11`}>
+        <NavLink to={`/${props.place}/11`}>
           <li>NOV</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}/12`}>
+        <NavLink to={`/${props.place}/12`}>
           <li>DEC</li>
-        </Link>
+        </NavLink>
 
-        <Link to={`/${props.place}`}>
+        <NavLink to={`/${props.place}`}>
           <li>TOUT</li>
-        </Link>
+        </NavLink>
       </ul>
     </div>
   );

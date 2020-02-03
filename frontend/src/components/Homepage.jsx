@@ -1,6 +1,6 @@
 import React from "react";
 import "./style/homepage.scss";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Homepage() {
   return (
@@ -10,16 +10,16 @@ function Homepage() {
       </div>
       <div className="card">
         <div className="sun">
-          <Link to="/plage">
+          <NavLink to="/plage">
             <h3>Soleil - Plage ?</h3>
             <img src="/plage.jpg"></img>
-          </Link>
+          </NavLink>
         </div>
         <div className="hiking">
-          <Link to="/randonnee">
+          <NavLink to="/randonnee">
             <h3>Randonnée?</h3>
             <img src="/randonnee.jpg"></img>
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>
