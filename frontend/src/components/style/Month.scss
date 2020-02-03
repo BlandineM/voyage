@@ -47,7 +47,6 @@
 
       .destinationPicture {
         height: 30vh;
-        box-shadow: 8px, 8px, 8px, white;
       }
     }
     .cards:hover {
@@ -57,6 +56,9 @@
       }
       .image {
         opacity: 1;
+      }
+      .destinationPicture {
+        box-shadow: 8px 8px 8px white;
       }
     }
   }
