@@ -17,7 +17,9 @@ router.get("/:type", (req, res) => {
   // Connection to the database and selection of information
   connection.query(
     `SELECT id, pays, mois_conseille_${sqlName}, mois_deconseille_${sqlName}
-    FROM destinations`,
+    FROM destinations
+    WHERE mois_conseille_${sqlName} IS NOT NULL
+    OR mois_deconseille_${sqlName} IS NOT NULL`,
     (err, results) => {
       if (err) {
         // If an error has occurred, then the user is informed of the error

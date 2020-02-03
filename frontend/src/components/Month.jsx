@@ -40,11 +40,11 @@ function Month() {
         @import
         url('https://fonts.googleapis.com/css?family=Indie+Flower|Lobster&display=swap');
       </style>
-      <h1> En {mois[month]} </h1>
+
       <NavBar place={type} />
       <div className="destinations">
         <div className="title">
-          <h2>A visiter</h2>
+          <h2>En {mois[month]} tu peux visiter</h2>
           <div className="destinationsG">
             {filterG.map((pays, i) => {
               return (
@@ -64,7 +64,7 @@ function Month() {
         </div>
         <div className="separation"></div>
         <div className="title">
-          <h2>A éviter</h2>
+          <h2>Déconseillé en {mois[month]}</h2>
           <div className="destinationsB">
             {filterB.map((pays, i) => {
               return (
