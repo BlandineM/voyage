@@ -3,6 +3,7 @@ import axios from "axios";
 import NavBar from "./NavBar";
 import "./style/Month.scss";
 import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Month() {
   const [filterG, setfilterG] = useState([]);
@@ -43,7 +44,7 @@ function Month() {
 
       <NavBar place={type} />
       <div className="destinations">
-        <div className="title">
+        <div className="titlecard">
           <h2>En {mois[month]} tu peux visiter</h2>
           <div className="destinationsG">
             {filterG.map((pays, i) => {
@@ -62,8 +63,15 @@ function Month() {
             })}
           </div>
         </div>
+        <NavLink to={`/newtrip`} className="newTrip">
+          <div className="addTrip">
+            <h2>Ajoute un voyage en {mois[month]} ? </h2>
+          </div>
+        </NavLink>
+
         <div className="separation"></div>
-        <div className="title">
+
+        <div className="titlecard">
           <h2>Déconseillé en {mois[month]}</h2>
           <div className="destinationsB">
             {filterB.map((pays, i) => {

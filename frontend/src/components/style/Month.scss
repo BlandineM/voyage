@@ -9,7 +9,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
-    .title {
+    .titlecard {
       h2 {
         color: #418bbe;
         font-size: 2.4em;
@@ -27,7 +27,6 @@
         justify-content: center;
       }
     }
-
     .cards {
       margin: 1%;
       border-radius: 10%;
@@ -62,6 +61,13 @@
         box-shadow: 8px 8px 8px white;
       }
     }
+  }
+
+  .newTrip {
+    margin: 2%;
+    width: 100%;
+    color: white;
+    font-size: 1em;
   }
   .separation {
     height: 3px;

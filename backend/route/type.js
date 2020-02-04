@@ -77,4 +77,25 @@ router.get("/:type/wrong/:id", (req, res) => {
     }
   );
 });
+
+//route to create a new car and link it at the user
+router.post("/:type/:id/newtrip", (req, res) => {
+  const type = req.params.type;
+  const id = req.params.id;
+  const newtrip = req.body;
+  const sqlName = sqlNameByType(type);
+  connection.query(
+    `INSERT INTO destinations (pays, mois_conseille_${sqlName})
+    values ("MARTINIQUE", "${id}"); 
+    ;`,
+    [id, newtrip],
+    (err, results) => {
+      if (err) {
+        // Si une erreur est survenue, alors on informe l'utilisateur de l'erreur
+        res.status(500).send("Invalid trip registration");
+      }
+      res.status(200).json(results);
+    }
+  );
+});
 module.exports = router;

@@ -9,7 +9,7 @@ export default function Header() {
         url('https://fonts.googleapis.com/css?family=Indie+Flower|Lobster&display=swap');
       </style>
       <a href="/">
-        <h1>Viens Chercher Bonheur !</h1>
+        <h1 className="title">Viens Chercher Bonheur !</h1>
       </a>
     </div>
   );
