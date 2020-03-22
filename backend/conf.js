@@ -1,5 +1,6 @@
 require("dotenv").config();
 const mysql = require("mysql");
+const cloudinary = require('cloudinary').v2;
 
 const connection = mysql.createConnection({
   host: process.env.HOST || "totost", // adresse du serveur
@@ -8,4 +9,10 @@ const connection = mysql.createConnection({
   database: process.env.DATABASE || "toto-DB" // le nom de la base de données
 });
 
-module.exports = { connection };
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME || 'toto',
+  api_key: process.env.CLOUDINARY_API_KEY || 'totoApiKey',
+  api_secret: process.env.CLOUDINARY_API_SECRET || 'totoApiKeySecret'
+});
+
+module.exports = { connection, cloudinary };
