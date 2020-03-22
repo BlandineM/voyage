@@ -14,9 +14,10 @@ function Type() {
     });
   }, [setpays]);
 
+
   return (
     <div className="main">
-      <h1>Direction {type} </h1>
+      <h1 className="title">Direction {type} </h1>
 
       <NavBar place={type} />
       <div className="destinations">
@@ -24,10 +25,10 @@ function Type() {
           return (
             <div key={i} className="cards">
               <div className="image">
-                <h2>{pays.pays}</h2>
+                <h2>{pays.name}</h2>
                 <img
                   className="destinationPicture"
-                  src={`/destinations/${pays.id}.jpg`}
+                  src={`/destinations/${pays.id_pays}.jpg`}
                   alt={`${pays.pays}`}
                 ></img>
               </div>

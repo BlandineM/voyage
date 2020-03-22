@@ -2,11 +2,21 @@
   form {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    border: thick double navajowhite;
+    margin: auto;
+    width: 75%;
+    height: 50vh;
   }
   h1 {
     color: #fdd365;
+  }
+  .input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
   label {
     color: red;
