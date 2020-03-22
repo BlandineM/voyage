@@ -25,15 +25,15 @@ function Month() {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/${type}/${month}`).then(({ data }) => {
+    axios.get(`http://localhost:5000/${type}/${month}/advised`).then(({ data }) => {
       setfilterG(data);
     });
-    axios
-      .get(`http://localhost:5000/${type}/wrong/${month}`)
-      .then(({ data }) => {
-        setfilterB(data);
-      });
+    axios.get(`http://localhost:5000/${type}/${month}/wrong`).then(({ data }) => {
+      setfilterB(data);
+    });
+
   }, [setfilterG, setfilterB, month]);
+
 
   return (
     <div className="main">
@@ -41,7 +41,7 @@ function Month() {
         @import
         url('https://fonts.googleapis.com/css?family=Indie+Flower|Lobster&display=swap');
       </style>
-
+      <h1 className="title">Direction {type} </h1>
       <NavBar place={type} />
       <div className="destinations">
         <div className="titlecard">
@@ -51,11 +51,11 @@ function Month() {
               return (
                 <div key={i} className="cards">
                   <div className="image">
-                    <h2>{pays.pays}</h2>
+                    <h2>{pays.name}</h2>
                     <img
                       className="destinationPicture"
-                      src={`/destinations/${pays.id}.jpg`}
-                      alt={`${pays.pays}`}
+                      src={`/destinations/${pays.id_pays}.jpg`}
+                      alt={`${pays.name}`}
                     ></img>
                   </div>
                 </div>
@@ -78,11 +78,11 @@ function Month() {
               return (
                 <div key={i} className="cards">
                   <div className="image">
-                    <h2>{pays.pays}</h2>
+                    <h2>{pays.name}</h2>
                     <img
                       className="destinationPicture"
-                      src={`/destinations/${pays.id}.jpg`}
-                      alt={`${pays.pays}`}
+                      src={`/destinations/${pays.id_pays}.jpg`}
+                      alt={`${pays.name}`}
                     ></img>
                   </div>
                 </div>
