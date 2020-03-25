@@ -8,6 +8,8 @@ const connection = mysql.createConnection({
   password: process.env.PASSWORD || "t0t0", // le mot de passe
   database: process.env.DATABASE || "toto-DB" // le nom de la base de données
 });
+const jwtSecret = process.env.JWT_SECRET || "jwt_please_change";
+const saltRounds = parseInt(process.env.SALT_ROUNDS) || "20"; // nombre de hachage du mot de passe
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME || 'toto',
@@ -15,4 +17,4 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET || 'totoApiKeySecret'
 });
 
-module.exports = { connection, cloudinary };
+module.exports = { connection, cloudinary, jwtSecret, saltRounds };
