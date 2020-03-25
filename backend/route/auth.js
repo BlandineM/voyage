@@ -71,7 +71,7 @@ router.post("/login", (req, res) => {
           } else {
             // Si tout s'est bien passé, on envoie le résultat de la requête SQL en tant que JSON.
             const token = jwt.sign(user, jwtSecret);
-            user.carData = results[0];
+            user = results[0];
             return res.status(200).json({ user, token });
           }
         }
