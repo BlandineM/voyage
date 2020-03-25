@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import NavBar from "./NavBar";
-import "./style/Month.scss";
+import NavBar from "../../../NavBar";
+import "./Month.scss";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 

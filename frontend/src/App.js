@@ -1,9 +1,9 @@
 import React from "react";
-import Homepage from "./components/Homepage";
+import Homepage from "./components/pages/homepage/Homepage";
 import Footer from "./components/Footer";
-import Type from "./components/Type";
-import Month from "./components/Month";
-import AddTrip from "./components/AddTrip";
+import Type from "./components/pages/countries/all/Type";
+import Month from "./components/pages/countries/month/Month";
+import AddTrip from "./components/pages/new trip/AddTrip";
 import Header from "./components/Header";
 import { Switch, Route } from "react-router-dom";
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import NavBar from "./NavBar";
-import "./style/type.scss";
+import NavBar from "../../../NavBar";
+import "./type.scss";
 import { useParams } from "react-router-dom";
 
 function Type() {
