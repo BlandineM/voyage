@@ -1,0 +1,42 @@
+.connexion{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10% auto;
+  width: 50%;
+  border-radius: 4%;
+  height: 20em;
+  color: white;
+  padding: 1rem;
+  color: white;
+  border-width: 3px;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      to bottom, 
+      red, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+  label{
+    input{
+      margin: 10% 25px ;
+      border-radius: 4%;
+      background: transparent;
+	    border: none;
+	    border-bottom: 1px dashed #83A4C5;
+
+    }
+  }
+  .button{
+    cursor:pointer;
+    width: 59%;
+    background-color: transparent;
+    border-color: red;
+    color: red;
+    border-radius: 50px;
+    height: 50px;
+    transition: all .3s cubic-bezier(0.67, 0.17, 0.40, 0.83);
+  }
+}
+
