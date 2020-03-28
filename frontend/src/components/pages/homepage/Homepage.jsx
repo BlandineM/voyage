@@ -1,5 +1,5 @@
 import React from "react";
-import "./style/homepage.scss";
+import "./homepage.scss";
 import { NavLink } from "react-router-dom";
 
 function Homepage() {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "./style/addTrip.scss";
+import "./addTrip.scss";
 import axios from "axios";
 
 export default function Addtrip() {
