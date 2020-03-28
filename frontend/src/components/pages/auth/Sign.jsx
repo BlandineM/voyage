@@ -41,14 +41,8 @@ function SignIn() {
 
   return (<div className="form">
     <div className="choice">
-      {status === "signin"
-        ? <div onClick={() => setStatus("signin")} className="signin_select">Se connecter</div>
-        : <div onClick={() => setStatus("signin")} className="signin">Se connecter</div>}
-
-      {status === "signup"
-        ? <div onClick={() => setStatus("signup")} className="signup_select" >Devenir membre</div>
-        : <div onClick={() => { return (setError(false), setStatus("signup")) }} className="signup" >Devenir membre</div>
-      }
+      <div onClick={() => setStatus("signin")} className={`signin${status === "signin" ? ` select` : ""}`}>Se connecter</div>
+      <div onClick={() => setStatus("signup")} className={`signup${status === "signup" ? ` select` : ""}`} >Devenir membre</div>
     </div>
 
     <form className="connexion" onSubmit={e => {
@@ -76,9 +70,11 @@ function SignIn() {
         <input type="password" name="password" id="pass" minLength="8" maxLength="20" required value={password} onChange={evt => setPassword(evt.target.value)} />
       </label>
 
-      {status === "signin"
-        ? <input className="button" type="submit" value="Connexion"></input>
-        : <input className="button" type="submit" value="S'inscrire"></input>}
+      <input className="button" type="submit" value={status === "signin"
+        ? "Connexion"
+        : "S'inscrire"} ></input>
+
+
 
     </form>
 
