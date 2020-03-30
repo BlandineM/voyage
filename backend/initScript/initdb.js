@@ -1,4 +1,4 @@
-const { connection } = require("../conf");
+const { connection } = require("../config/db");
 const axios = require('axios');
 const accents = require('remove-accents');
 

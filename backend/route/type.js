@@ -1,5 +1,5 @@
 const express = require("express");
-const { connection, cloudinary } = require("../conf");
+const { connection } = require("../config/db");
 const router = express.Router();
 
 function sqlNameByType(type) {
