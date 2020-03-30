@@ -2,44 +2,18 @@ const express = require("express");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 require("../passport-startegies");
-const { jwtSecret, saltRounds, connection } = require("../conf");
-const bcrypt = require("bcrypt");
+const { jwtSecret } = require("../config/conf");
+const { connection } = require("../config/db");
 const router = express.Router();
-
+const { UserService } = require("../services/user");
+const UserModel = require("../models/user");
 
 router.post("/signup", (req, res) => {
-  const formData = req.body;
-  const hash = bcrypt.hashSync(formData.password, saltRounds);
-  formData.password = hash;
-  connection.query(
-    `SELECT login 
-    FROM users WHERE login = ?`,
-    [formData.login],
-    (err, results) => {
-      if (err) return res.status(500).send("error");
-      if (results.length) return res.status(409).send("email already used");
-      connection.query(
-        `INSERT INTO users
-          SET ?
-          `,
-        formData,
-        (err, results) => {
-          if (err) {
-            // Si une erreur est survenue, alors on informe l'utilisateur de l'erreur
-            return res.status(500).send("Invalid User creation request");
-          } else {
-            // Si tout s'est bien passé, on envoie le résultat de la requête SQL en tant que JSON.
-            const returnData = {
-              id: results.insertId,
-              login: formData.login
-            };
-            const token = jwt.sign(returnData, jwtSecret);
-            return res.status(201).json({ returnData, token });
-          }
-        }
-      );
-    }
-  );
+  const userDTO = req.body;
+  const userService = new UserService(UserModel);
+  return userService.signup(userDTO)
+      .then(result => res.status(201).json(result))
+      .catch((err => res.status(err.httpStatusCode).send(err.message)));
 });
 
 router.post("/login", (req, res) => {
