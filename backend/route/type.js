@@ -24,7 +24,7 @@ router.get("/:type", (req, res) => {
   const sqlName = sqlNameByType(type);
   // Connection to the database and selection of information
   connection.query(
-    `SELECT pays.id AS id_pays, pays.name
+    `SELECT pays.id AS id_pays, pays.name, pays.capital, pays.region, pays.nameFr, pays.flag, pays.pictures
       FROM assoc_pays_periodes_types
         INNER JOIN pays on pays.id=assoc_pays_periodes_types.id_pays 
         INNER JOIN periodes on periodes.id=assoc_pays_periodes_types.id_periodes
@@ -49,7 +49,7 @@ router.get("/:type/:id/:advised", (req, res) => {
   const sqlType = sqlAdvised(advised)
   // Connection to the database and selection of information
   connection.query(
-    `SELECT  pays.id AS id_pays, pays.name, periodes.id AS id_month, periodes.month
+    `SELECT  pays.id AS id_pays, pays.name, periodes.id AS id_month, periodes.month,pays.capital, pays.region, pays.nameFr, pays.flag, pays.pictures
       FROM assoc_pays_periodes_types
         INNER JOIN pays ON pays.id=assoc_pays_periodes_types.id_pays 
         INNER JOIN periodes on periodes.id=assoc_pays_periodes_types.id_periodes

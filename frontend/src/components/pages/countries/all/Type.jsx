@@ -25,18 +25,24 @@ function Type() {
           return (
             <div key={i} className="cards">
               <div className="image">
-                <h2>{pays.name}</h2>
+                <h2>{pays.nameFr != null
+                  ? pays.nameFr
+                  : pays.name}</h2>
                 <img
                   className="destinationPicture"
-                  src={`/destinations/${pays.id_pays}.jpg`}
-                  alt={`${pays.pays}`}
+
+                  src={pays.pictures != null
+                    ? `${pays.pictures}`
+                    : `${pays.flag}`}
+
+                  alt={`${pays.name}`}
                 ></img>
               </div>
             </div>
           );
         })}
       </div>
-    </div>
+    </div >
   );
 }
 
